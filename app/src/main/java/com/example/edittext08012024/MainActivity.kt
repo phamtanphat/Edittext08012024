@@ -1,5 +1,6 @@
 package com.example.edittext08012024
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -26,27 +27,20 @@ class MainActivity : AppCompatActivity() {
         edtInputMessage = findViewById(R.id.edit_text_message)
         txtMessage = findViewById(R.id.text_view_message)
 
-        handleData(this::callback)
+//        handleData(fun(string1) {
+//            Log.d("pphat", "Function ${this}")
+//        })
+
+        handleData ("1") { string1 ->
+            Log.d("pphat", "Lambda Function ${this}")
+        }
     }
 
-//    fun doSomething(a: Int, b: Int, callBack: (String) -> Unit) {
-//        val total = a + b
-//        callBack(total.toString())
-//    }
-//
-//    fun printMessage(message: String) {
-//        println(message)
-//    }
-
-    fun handleData(callback: (String) -> Unit) {
+    fun handleData(text: String, callback: (String) -> Unit) {
         CoroutineScope(Dispatchers.IO).launch {
             delay(1000)
             var message = "Success"
             callback(message)
         }
-    }
-
-    fun callback(message: String) {
-        Log.d("pphat", message)
     }
 }

@@ -4,6 +4,8 @@ import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.View.OnClickListener
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -31,8 +33,18 @@ class MainActivity : AppCompatActivity() {
 //            Log.d("pphat", "Function ${this}")
 //        })
 
-        handleData ("1") { string1 ->
-            Log.d("pphat", "Lambda Function ${this}")
+//        handleData ("1") { string1 ->
+//            Log.d("pphat", "Lambda Function ${this}")
+//        }
+
+        btnShowMessage.setOnClickListener(object : OnClickListener {
+            override fun onClick(p0: View?) {
+
+            }
+        })
+
+        btnShowMessage.setOnClickListener {
+
         }
     }
 
